@@ -4,8 +4,8 @@ PIPEF=/tmp/ppp
 
 if [ -p $PIPEF ] ; then
     echo  $PIPEF ' found and remove it.'
-    /bin/rm $PIPEF
 
+    /bin/rm $PIPEF
 fi
 
 mkfifo $PIPEF
@@ -17,5 +17,7 @@ do
     echo 'Disconnect (Try to connect again)'
     sleep 1
     echo ''
+    /bin/rm $PIPEF
+    mkfifo $PIPEF
 done
 
